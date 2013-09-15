@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Le Manoir de Juganville</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<script type="text/x-handlebars" data-template-name="app">
+	<header></header>
+	<section id="slides">
+		<header>
+			<h3>
+				<a href="juganville.com">LE MANOIR DE JUGANVILLE</a>
+			</h3>
+		</header>
+		<section id="slides-control">
+			<ul>
+				{{#each}}
+				<li>
+					<img {{bind-attr src="img"}} />
+					<div>
+						<h1>{{title}}</h1>
+						<h2>{{extra_title}}</h2>
+					</div>
+				</li>
+				{{/each}}
+			</ul>
+		</section>
+		<footer>
+			<nav id="direction">
+				<a href="#" class="next"><img src="img/arrow_right.svg" /></a>
+				<a href="#" class="prev"><img src="img/arrow_left.svg" /></a>
+			</nav>
+			<nav id="pagination">
+				<a href="#" class="current">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+			</nav>
+		</footer>
+	</section>
+	<section id="presentation">
+		<header>
+			<h3>title</h3>
+		</header>
+		<section>
+			<ul>
+				<li>
+					<header>
+						The Baldaquin
+					</header>
+					<section>
+						<section class="text">
+							<p>Victus universis caro ferina est lactisque abundans copia qua sustentantur, et herbae multiplices et siquae alites capi per aucupium possint, et plerosque mos vidimus frumenti usum et vini penitus ignorantes.</p>
+							<p>Vide, quantum, inquam, fallare, Torquate. oratio me istius philosophi non offendit; nam et complectitur verbis, quod vult, et dicit plane, quod intellegam; et tamen ego a philosopho, si afferat eloquentiam, non asperner, si non habeat, non admodum flagitem. re mihi non aeque satisfacit, et quidem locis pluribus. sed quot homines, tot sententiae; falli igitur possumus.</p>
+						</section>
+						<section class="picture">
+						</section>
+					</section>
+					<footer>
+					</footer>
+					<header>
+						The Exotique
+					</header>
+					<section>
+						<section class="text">
+							<p>Victus universis caro ferina est lactisque abundans copia qua sustentantur, et herbae multiplices et siquae alites capi per aucupium possint, et plerosque mos vidimus frumenti usum et vini penitus ignorantes.</p>
+							<p>Vide, quantum, inquam, fallare, Torquate. oratio me istius philosophi non offendit; nam et complectitur verbis, quod vult, et dicit plane, quod intellegam; et tamen ego a philosopho, si afferat eloquentiam, non asperner, si non habeat, non admodum flagitem. re mihi non aeque satisfacit, et quidem locis pluribus. sed quot homines, tot sententiae; falli igitur possumus.</p>
+						</section>
+						<section class="picture">
+						</section>
+					</section>
+					<footer>
+					</footer>
+			</ul>
+		</section>
+	</section>
+	<section></section>
+	<section id="extras" class="body">
+	<div class="links">
+		<h2>Useful Links</h2>
+ 
+		<ul>
+			<li><a href="#" rel="external">encotentin.fr</a></li>
+			<li><a href="#" rel="external">manchetourisme.com</a></li>
+ 
+			<li><a href="#" rel="external">american-dday-tours.com</a></li>
+			<li><a href="#" rel="external">ddaybattletours.com</a></li>
+			<li><a href="#" rel="external">ddayhistorian.com</a></li>
+		</ul>
+	</div><!-- /.links -->
+ 	<div class="references">
+		<h2>References</h2>
+ 
+		<ul>
+			<li><a href="guidesdecharme.com" rel="external">guidesdecharme.com/</a></li>
+			<li><a href="gites-de-france-manche.com" rel="external">gites-de-france-manche.com/</a></li>
+			<li><a href="gites-de-france-charme.com" rel="external">gites-de-france-charme.com/</a></li>
+ 
+
+		</ul>
+	</div><!-- /.references -->
+ 
+	<div class="social">
+ 
+		<h2>social</h2>
+		<ul>
+			<li><a href="http://delicious.com/enrique_ramirez" rel="me">delicious</a></li>
+			<li><a href="http://digg.com/users/enriqueramirez" rel="me">digg</a></li>
+ 
+			<li><a href="http://facebook.com/enrique.ramirez.velez" rel="me">facebook</a></li>
+			<li><a href="http://www.lastfm.es/user/enrique-ramirez" rel="me">last.fm</a></li>
+			<li><a href="http://website.com/feed/" rel="alternate">rss</a></li>
+ 
+			<li><a href="http://twitter.com/enrique_ramirez" rel="me">twitter</a></li>
+		</ul>
+	</div><!-- /.social -->
+</section><!-- /#extras -->
+	<footer id="contentinfo" class="body">
+		<address>
+		<span class="primary">
+			<strong><a href="#" class="fn url">Le Manoir de Juganville</a></strong>
+ 
+			<span class="role">BnB in Normandy</span>
+		</span><!-- /.primary -->
+		
+		<img src="images/avatar.gif" alt="Smashing Magazine Logo" class="photo" />
+		<span class="bio">Le Manoir de Juganville is a BnB welcomeing you in the heart of Normandy</span>
+ 
+	</address><!-- /#about -->
+	<p>2004-2013 <a href="http://juganville.com">Le Manoir de Juganville</a>.</p>
+	</footer>
+  </script>
+  <script src="js/libs/jquery-1.10.2.min.js"></script>
+  <script src="js/libs/handlebars-1.0.0.js"></script>
+  <script src="js/libs/ember.js"></script>
+  <script src="js/libs/ember-data.js"></script>
+
+  <script src="js/app.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/models/slide.js"></script>
+</body>
+</html>
