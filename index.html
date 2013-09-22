@@ -1,32 +1,33 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Le Manoir de Juganville</title>
-<link rel="stylesheet" href="css/style.css">
+	<meta charset="utf-8">
+	<title>Le Manoir de Juganville</title>
+	<link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-	<script type="text/x-handlebars" data-template-name="app">
-	<header></header>
-	<section id="slides">
-		<header>
-			<h3>
-				<a href="juganville.com">LE MANOIR DE JUGANVILLE</a>
-			</h3>
-		</header>
-		<section id="slides-control">
-			<ul>
-				{{#each}}
-				<li>
-					<img {{bind-attr src="img"}} />
-					<div>
-						<h1>{{title}}</h1>
-						<h2>{{extra_title}}</h2>
-					</div>
-				</li>
-				{{/each}}
-			</ul>
+	<header>
+		<section id="global-nav">
+			<nav>
+				<ul class="projects">
+					<li><a href="#" title="Le Manoir de Juganville" class="title">Le Manoir de Juganville</a></li>
+					<li><a href="#">The Manor</a></li>
+					<li><a href="#">The Rooms</a></li>
+					<li><a href="#">The Garden</a></li>
+					<li><a href="#">Around</a></li>
+				</ul>
+				<ul class="links l_tinynav2">
+					
+					<li><a href="en">EN</a></li>
+					<li><a href="fr">FR</a></li>
+					<li><a href="zh">中文</a></li>
+				</ul>
+			</nav>
 		</section>
+	</header>
+<!--	<section id="slides">
+
+
 		<footer>
 			<nav id="direction">
 				<a href="#" class="next"><img src="img/arrow_right.svg" /></a>
@@ -38,106 +39,41 @@
 				<a href="#">3</a>
 			</nav>
 		</footer>
-	</section>
+	</section> -->
 	<section id="presentation">
-		<header>
-			<h3>title</h3>
-		</header>
-		<section>
-			<ul>
-				<li>
-					<header>
-						The Baldaquin
-					</header>
-					<section>
-						<section class="text">
-							<p>Victus universis caro ferina est lactisque abundans copia qua sustentantur, et herbae multiplices et siquae alites capi per aucupium possint, et plerosque mos vidimus frumenti usum et vini penitus ignorantes.</p>
-							<p>Vide, quantum, inquam, fallare, Torquate. oratio me istius philosophi non offendit; nam et complectitur verbis, quod vult, et dicit plane, quod intellegam; et tamen ego a philosopho, si afferat eloquentiam, non asperner, si non habeat, non admodum flagitem. re mihi non aeque satisfacit, et quidem locis pluribus. sed quot homines, tot sententiae; falli igitur possumus.</p>
-						</section>
-						<section class="picture">
-						</section>
-					</section>
-					<footer>
-					</footer>
-					<header>
-						The Exotique
-					</header>
-					<section>
-						<section class="text">
-							<p>Victus universis caro ferina est lactisque abundans copia qua sustentantur, et herbae multiplices et siquae alites capi per aucupium possint, et plerosque mos vidimus frumenti usum et vini penitus ignorantes.</p>
-							<p>Vide, quantum, inquam, fallare, Torquate. oratio me istius philosophi non offendit; nam et complectitur verbis, quod vult, et dicit plane, quod intellegam; et tamen ego a philosopho, si afferat eloquentiam, non asperner, si non habeat, non admodum flagitem. re mihi non aeque satisfacit, et quidem locis pluribus. sed quot homines, tot sententiae; falli igitur possumus.</p>
-						</section>
-						<section class="picture">
-						</section>
-					</section>
-					<footer>
-					</footer>
-			</ul>
-		</section>
+		<article>
+			<header>
+				The Manor
+			</header>
+			<section>
+				<p>Looking for holiday accomodation in Normandy ? Our XVI century Manor House is an excellent base from which to explore the attractions of the area. It’s within easy – driving distance of Sainte Mère Eglise, the D.Day Landing Beaches, Bayeux and Le Mont St Michel.</p>
+				<p>Our Manor is nestled in a very quiet country setting surrounded by gardens where you can relax on a summer evening. Our non-smoking rooms have been decorated to create an intimate atmosphere: refined but relaxed, combining charm and comfort. Breakfast is particularly appreciated with home made products.</p>
+			</section>
+		</article>
 	</section>
-	<section></section>
-	<section id="extras" class="body">
-	<div class="links">
-		<h2>Useful Links</h2>
- 
-		<ul>
-			<li><a href="#" rel="external">encotentin.fr</a></li>
-			<li><a href="#" rel="external">manchetourisme.com</a></li>
- 
-			<li><a href="#" rel="external">american-dday-tours.com</a></li>
-			<li><a href="#" rel="external">ddaybattletours.com</a></li>
-			<li><a href="#" rel="external">ddayhistorian.com</a></li>
-		</ul>
-	</div><!-- /.links -->
- 	<div class="references">
-		<h2>References</h2>
- 
-		<ul>
-			<li><a href="guidesdecharme.com" rel="external">guidesdecharme.com/</a></li>
-			<li><a href="gites-de-france-manche.com" rel="external">gites-de-france-manche.com/</a></li>
-			<li><a href="gites-de-france-charme.com" rel="external">gites-de-france-charme.com/</a></li>
- 
 
-		</ul>
-	</div><!-- /.references -->
- 
-	<div class="social">
- 
-		<h2>social</h2>
-		<ul>
-			<li><a href="http://delicious.com/enrique_ramirez" rel="me">delicious</a></li>
-			<li><a href="http://digg.com/users/enriqueramirez" rel="me">digg</a></li>
- 
-			<li><a href="http://facebook.com/enrique.ramirez.velez" rel="me">facebook</a></li>
-			<li><a href="http://www.lastfm.es/user/enrique-ramirez" rel="me">last.fm</a></li>
-			<li><a href="http://website.com/feed/" rel="alternate">rss</a></li>
- 
-			<li><a href="http://twitter.com/enrique_ramirez" rel="me">twitter</a></li>
-		</ul>
-	</div><!-- /.social -->
-</section><!-- /#extras -->
 	<footer id="contentinfo" class="body">
 		<address>
-		<span class="primary">
-			<strong><a href="#" class="fn url">Le Manoir de Juganville</a></strong>
- 
-			<span class="role">BnB in Normandy</span>
-		</span><!-- /.primary -->
-		
-		<img src="images/avatar.gif" alt="Smashing Magazine Logo" class="photo" />
-		<span class="bio">Le Manoir de Juganville is a BnB welcomeing you in the heart of Normandy</span>
- 
-	</address><!-- /#about -->
-	<p>2004-2013 <a href="http://juganville.com">Le Manoir de Juganville</a>.</p>
-	</footer>
-  </script>
-  <script src="js/libs/jquery-1.10.2.min.js"></script>
-  <script src="js/libs/handlebars-1.0.0.js"></script>
-  <script src="js/libs/ember.js"></script>
-  <script src="js/libs/ember-data.js"></script>
+			<span class="primary">
+				<strong><a href="#" class="fn url">Le Manoir de Juganville</a></strong>
 
-  <script src="js/app.js"></script>
-  <script src="js/router.js"></script>
-  <script src="js/models/slide.js"></script>
+				<span class="role">BnB in Normandy</span>
+			</span><!-- /.primary -->
+
+			<img src="images/avatar.gif" alt="Smashing Magazine Logo" class="photo" />
+			<span class="bio">Le Manoir de Juganville is a BnB welcomeing you in the heart of Normandy</span>
+
+		</address><!-- /#about -->
+		<p>2004-2013 <a href="http://juganville.com">Le Manoir de Juganville</a>.</p>
+	</footer>
+	<script src="static/js/libs/jquery-1.10.2.min.js"></script>
+	<script src="static/js/libs/handlebars-1.0.0.js"></script>
+	<script src="static/js/libs/ember.js"></script>
+	<script src="static/js/libs/ember-data.js"></script>
+	<script src="static/js/libs/jquery.backstretch.min.js"></script>
+
+	<script src="static/js/app.js"></script>
+	<script src="static/js/router.js"></script>
+	<script src="static/js/models/slide.js"></script>
 </body>
 </html>
