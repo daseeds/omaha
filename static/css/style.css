@@ -214,6 +214,9 @@ a:visited:hover {
 	text-rendering: optimizeLegibility;		
 }
 
+#global-nav nav ul li a.selected {
+	opacity: 1;	
+}
 
 
 

@@ -7,14 +7,16 @@
 	<link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
+	<script type="text/x-handlebars" >
+	{% raw %}
 	<header>
-		<section id="global-nav">
+		<section id="global-nav" >
 			<nav>
 				<ul class="projects">
-					<li><a href="#" title="Le Manoir de Juganville" class="title">Le Manoir de Juganville</a></li>
-					<li><a href="#">The Manor</a></li>
+					<li >{{#linkTo 'index' classNames="title"  }}Le Manoir de Juganville{{/linkTo}}</li>
+					<li>{{#linkTo 'manor' activeClass="selected"}}The Manor{{/linkTo}}</li>
 					<li><a href="#">The Rooms</a></li>
-					<li><a href="#">The Garden</a></li>
+					<li>{{#linkTo 'garden' activeClass="selected"}}The Garden{{/linkTo}}</li>
 					<li><a href="#">Around</a></li>
 					<li><a href="#">BOOK</a></li>
 				</ul>
@@ -27,37 +29,30 @@
 			</nav>
 		</section>
 	</header>
-<!--	<section id="slides">
-
-
-		<footer>
-			<nav id="direction">
-				<a href="#" class="next"><img src="img/arrow_right.svg" /></a>
-				<a href="#" class="prev"><img src="img/arrow_left.svg" /></a>
-			</nav>
-			<nav id="pagination">
-				<a href="#" class="current">1</a>
-				<a href="#">2</a>
-				<a href="#">3</a>
-			</nav>
-		</footer>
-	</section> -->
+	{{outlet}}
+	</script>
+	
+	<script type="text/x-handlebars" data-template-name="base1"> 
 	<section id="presentation">
-		<article>
-			<header>
-				The Manor
-			</header>
-			<section>
-				<p>Looking for holiday accomodation in Normandy ? Our XVI century Manor House is an excellent base from which to explore the attractions of the area. It’s within easy – driving distance of Sainte Mère Eglise, the D.Day Landing Beaches, Bayeux and Le Mont St Michel.</p>
-				<p>Our Manor is nestled in a very quiet country setting surrounded by gardens where you can relax on a summer evening. Our non-smoking rooms have been decorated to create an intimate atmosphere: refined but relaxed, combining charm and comfort. Breakfast is particularly appreciated with home made products.</p>
-			</section>
-		</article>
-		<aside>
-			<h1>XVI century Manor House</h1>
-			<br>
-			<h2>Holiday in Normandy</h2>
-		</aside>
+	<article>
+	<header>
+	{{title}}
+	</header>
+	<section>
+	<p>Looking for holiday accomodation in Normandy ? Our XVI century Manor House is an excellent base from which to explore the attractions of the area. It’s within easy – driving distance of Sainte Mère Eglise, the D.Day Landing Beaches, Bayeux and Le Mont St Michel.</p>
+	<p>Our Manor is nestled in a very quiet country setting surrounded by gardens where you can relax on a summer evening. Our non-smoking rooms have been decorated to create an intimate atmosphere: refined but relaxed, combining charm and comfort. Breakfast is particularly appreciated with home made products.</p>
 	</section>
+	</article>
+	<aside>
+	<h1>XVI century Manor House</h1>
+	<br>
+	<h2>Holiday in Normandy</h2>
+	</aside>
+	</section>
+	{% endraw %}
+	</script>
+
+
 
 <!--	<footer id="contentinfo" class="body">
 		<address>
