@@ -7,46 +7,67 @@
 	<link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
+
 	<script type="text/x-handlebars" >
 	{% raw %}
 	<header>
 		<section id="global-nav" >
 			<nav>
-				<ul class="projects">
-					<li >{{#linkTo 'index' classNames="title"  }}Le Manoir de Juganville{{/linkTo}}</li>
-					<li>{{#linkTo 'manor' activeClass="selected"}}The Manor{{/linkTo}}</li>
-					<li><a href="#">The Rooms</a></li>
-					<li>{{#linkTo 'garden' activeClass="selected"}}The Garden{{/linkTo}}</li>
-					<li><a href="#">Around</a></li>
-					<li><a href="#">BOOK</a></li>
-				</ul>
 				<ul class="links l_tinynav2">
-					
-					<li><a href="en">EN</a></li>
-					<li><a href="fr">FR</a></li>
-					<li><a href="zh">中文</a></li>
+					{{#each}}
+					<li>{{#linkTo 'pages' this currentWhen='pages' activeClass="selected" }}{{name}}{{pages.length}}{{/linkTo}}</li>
+					{{/each}}
 				</ul>
+				{{outlet langs}}
 			</nav>
 		</section>
 	</header>
 	{{outlet}}
+	{% endraw %}
 	</script>
+
+
+	<script type="text/x-handlebars" data-template-name="pages/index">
+	{% raw %}
+
+				<ul class="projects">
+
+
+					{{#each }}
+					<li>{{#link-to "pages.page" this activeClass="selected"}}{{name}}{{/link-to}}</li>
+
+					{{else}}
+        			<li>Loading...</li>
+					{{/each}}
+				</ul>
+
+	{{outlet}}
+	{% endraw %}
 	
-	<script type="text/x-handlebars" data-template-name="base1"> 
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="loading">
+	  <h1>Loading...</h1>
+	</script>	
+	
+	<script type="text/x-handlebars" data-template-name="page"> 
+	{% raw %}
 	<section id="presentation">
+	{{#each article in page.articles}}
 	<article>
 	<header>
-	{{title}}
+	{{article.title}}
 	</header>
 	<section>
 	<p>Looking for holiday accomodation in Normandy ? Our XVI century Manor House is an excellent base from which to explore the attractions of the area. It’s within easy – driving distance of Sainte Mère Eglise, the D.Day Landing Beaches, Bayeux and Le Mont St Michel.</p>
 	<p>Our Manor is nestled in a very quiet country setting surrounded by gardens where you can relax on a summer evening. Our non-smoking rooms have been decorated to create an intimate atmosphere: refined but relaxed, combining charm and comfort. Breakfast is particularly appreciated with home made products.</p>
 	</section>
 	</article>
+	{{/each}}
 	<aside>
-	<h1>XVI century Manor House</h1>
+	<h1>{{title}}</h1>
 	<br>
-	<h2>Holiday in Normandy</h2>
+	<h2>{{extra_title}}</h2>
 	</aside>
 	</section>
 	{% endraw %}
@@ -68,9 +89,9 @@
 		</address>
 		<p>2004-2013 <a href="http://juganville.com">Le Manoir de Juganville</a>.</p>
 	</footer> -->
-	<script src="static/js/libs/jquery-1.10.2.min.js"></script>
+	<script src="static/js/libs/jquery-1.9.1.js"></script>
 	<script src="static/js/libs/handlebars-1.0.0.js"></script>
-	<script src="static/js/libs/ember.js"></script>
+	<script src="static/js/libs/ember-1.0.0.js"></script>
 	<script src="static/js/libs/ember-data.js"></script>
 	<script src="static/js/libs/jquery.backstretch.min.js"></script>
 
