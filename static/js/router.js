@@ -1,6 +1,8 @@
 App.Router.map(function () {
-    this.resource('pages', { path: '/:lang_id' }, function() {
-      this.route('page', { path: '/:page_id' });
+    this.resource('langs', { path: '/' }, function() {
+      this.resource('pages', { path: '/:lang_id' }, function() {
+        this.route('page', { path: '/:page_id' });
+      });
     });      
 //		this.route('manor', { path: '/bed-and-breakfeast-manor-in-normandy'});
 //		this.route('garden', { path: '/bed-and-breakfeast-manor-in-normandy-garden' });
@@ -11,96 +13,65 @@ App.Router.map(function () {
 //Debug
 App.routes = Ember.keys(App.Router.router.recognizer.names);
 
-App.ApplicationRoute  = Em.Route.extend({
-  model: function() {
-    return this.store.find('lang');
+App.Lang = Em.Object.extend();
+
+App.Lang.reopenClass({
+  find: function(id) {
+    if (id) {
+      return App.FIXTURES.findBy('id', id);
+    } else {
+      return App.FIXTURES;
+    }
   }
 });
 
-/*App.LangsIndexRoute  = Em.Route.extend({
+App.LangsRoute  = Em.Route.extend({
   model: function() {
-    return this.store.find('lang');
-  }
-});*/
-
-App.IndexRoute = Ember.Route.extend({
-  redirect: function() {
-    this.transitionTo('pages.index', 'en');
+    return App.Lang.find();
   }
 });
 
-/*App.PagesIndexRoute = Em.Route.extend({
+App.PagesRoute  = Em.Route.extend({
   model: function(params) {
-    console.log(params.lang_id);
-    return this.store.find('page', params.lang_id);
+    return App.Lang.find(params.lang_id);
   }
-});*/
+});
+
+App.PagesPageController = Ember.ObjectController.extend({
+  activate: function() {
+    console.log('activate ' + model.toArray());
+  }
+});
 
 App.PagesPageRoute = Em.Route.extend({
   model: function(params) {
+    console.log("params.page_id: " + params.page_id);
+    return App.Lang.find('id', params.page_id);
     return this.modelFor('lang').pages.findBy('id', params.page_id);
   }
 });
 
-/*App.LangsIndexRoute  = Em.Route.extend({
+/*App.LangsRoute  = Em.Route.extend({
   model: function() {
-    return this.modelFor('langs');
-  }
-});*/
-
-
-/*App.LangIndexRoute = Em.Route.extend({
-  model: function(params) {
-    console.log("App.LangIndexRoute");
-    console.log(params.lang_id);
-    return this.store.find('lang', params.lang_id);
-    console.log("finished");
+    return this.store.find('lang');
   }
 });
 
-App.PageRoute = Em.Route.extend({
+App.PagesRoute = Em.Route.extend({
   model: function(params) {
-    console.log("App.PageRoute");
-    console.log(params.page_id);
-    return this.store.find('page', params.page_id);
+    console.log("params.lang_id: " + params.lang_id);
+    this.store.find('lang', params.lang_id).then(function(stuff){console.log("store: " + stuff.toArray())});
+    //return this.modelFor('langs').findBy('id', 'en');
+    //return this.store.findAll('page', params.lang_id);
+    //return this.store.find('lang', params.lang_id);
+    return this.store.findById('lang', params.lang_id);
+  }
+});
+
+App.PagesPageRoute = Em.Route.extend({
+  model: function(params) {
+    console.log("params.page_id: " + params.page_id);
+    return this.modelFor('lang').pages.findBy('id', params.page_id);
   }
 });*/
 
-
-// App.ManorRoute = Ember.Route.extend({
-// 	model:function () {
-//     return this.store.find('Presentation', 1);
-//     //return {title: 'test'};
-//   },
-
-//   setupController: function(controller) {
-
-//     //controller.set('model', presentation);
-//     //controller.set('manor', this.store.find('Presentation', 1));
-//     $.backstretch([     "static/img/entree.jpg",   "static/img/L1014010-2.jpg"    ], {duration: 10000});
-//   },
-//   renderTemplate: function(controller){
-//     this.render('base1', {controller: controller});
-// }
-// });
-
-// App.GardenRoute = Ember.Route.extend({
-//   model:function () {
-//     return this.store.find('Presentation', 2);
-//     //return {title: 'test'};
-//   },  
-//   setupController: function(controller) {
-
-
-//     $.backstretch([  "static/img/DSC_0403.JPG", "static/img/la_tour_1_1_.JPG"    ], {duration: 10000});
-//   },
-//   renderTemplate: function(controller){
-//     this.render('base1', {controller: controller});
-// }
-// });
-
-/*App.IndexRoute = Ember.Route.extend({
-  redirect: function() {
-    this.transitionTo('lang.index');
-  }
-});*/

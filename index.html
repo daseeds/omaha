@@ -8,39 +8,38 @@
 </head>
 <body>
 
-	<script type="text/x-handlebars" >
+	<script type="text/x-handlebars" data-template-name="langs">
 	{% raw %}
 	<header>
 		<section id="global-nav" >
 			<nav>
+				
 				<ul class="links l_tinynav2">
 					{{#each}}
-					<li>{{#linkTo 'pages' this currentWhen='pages' activeClass="selected" }}{{name}}{{pages.length}}{{/linkTo}}</li>
+					<li>{{#linkTo 'pages' this currentWhen='pages' activeClass="selected" }}{{name}}{{/linkTo}}</li>
 					{{/each}}
 				</ul>
-				{{outlet langs}}
-			</nav>
-		</section>
-	</header>
+
 	{{outlet}}
 	{% endraw %}
 	</script>
 
 
-	<script type="text/x-handlebars" data-template-name="pages/index">
+	<script type="text/x-handlebars" data-template-name="pages">
 	{% raw %}
 
 				<ul class="projects">
-
-
-					{{#each }}
-					<li>{{#link-to "pages.page" this activeClass="selected"}}{{name}}{{/link-to}}</li>
+					{{#each pages}}
+					<li>{{#link-to "pages.page" this  activeClass="selected"}}{{name}}{{/link-to}}</li>
 
 					{{else}}
         			<li>Loading...</li>
 					{{/each}}
 				</ul>
 
+			</nav>
+		</section>
+	</header>
 	{{outlet}}
 	{% endraw %}
 	
@@ -50,7 +49,7 @@
 	  <h1>Loading...</h1>
 	</script>	
 	
-	<script type="text/x-handlebars" data-template-name="page"> 
+	<script type="text/x-handlebars" data-template-name="pages/page"> 
 	{% raw %}
 	<section id="presentation">
 	{{#each article in page.articles}}
@@ -92,7 +91,7 @@
 	<script src="static/js/libs/jquery-1.9.1.js"></script>
 	<script src="static/js/libs/handlebars-1.0.0.js"></script>
 	<script src="static/js/libs/ember-1.0.0.js"></script>
-	<script src="static/js/libs/ember-data.js"></script>
+	<script src="static/js/libs/ember-data-1.0.0-beta.3.js"></script>
 	<script src="static/js/libs/jquery.backstretch.min.js"></script>
 
 	<script src="static/js/app.js"></script>

@@ -1,6 +1,55 @@
 
+App.FIXTURES = [
+{
+  id: 'en',
+  name: 'EN',
+  pages: [
+    {
+       id: 'bed-and-breakfeast-manor-in-normandy',
+       lang: 'en',
+       name: 'THE MANOR',
+       title: 'XVI CENTURY MANOR HOUSE',
+       extra_title: 'Holiday in Normandy',
+       articles: [
+         {
+          id: 1,
+          title: 'coucou'
+         }
+       ],
+       pictures: [
+        {
+          id: 1,
+          path: 'static/img/entree.jpg'
+        },{
+          id: 2,
+          path: 'static/img/L1014010-2.jpg'
+        }
+       ]
+     }, {
+       id: 'bed-and-breakfeast-manor-in-normandy-garden',
+       lang: 'en',
+       name: 'THE GARDEN',
+       title: 'WOW SO GREEN',
+       extra_title: 'Holiday in Normandy',
+     }
+  ]
+},{
+  id: 'fr',
+  name: 'FR',
+  pages: [
+    {
+       id: 'chambres-hotes',
+       lang: 'fr',
+       name: 'LE MANOIR',
+       title: 'UN MANOIR DU 16eme VOUS ATTENDS',
+       extra_title: 'Vous ressourcer en Normandie',
+     }
+  ]  
+}
+];
 
-App.Lang = DS.Model.extend({
+
+/*App.Lang = DS.Model.extend({
   name: DS.attr('string'),
   pages: DS.hasMany('page',{async:true})
 });
@@ -82,4 +131,4 @@ App.Picture.FIXTURES =[
   id: 2,
   path: 'static/img/L1014010-2.jpg'
 }
-];
+];*/
