@@ -1,21 +1,16 @@
 App.Router.map(function () {
-    this.resource('langs', { path: '/' }, function() {
-      this.resource('pages', { path: '/:lang_id' }, function() {
-        this.route('page', { path: '/:page_id' });
-      });
-    });      
-//		this.route('manor', { path: '/bed-and-breakfeast-manor-in-normandy'});
-//		this.route('garden', { path: '/bed-and-breakfeast-manor-in-normandy-garden' });
-
-
+  this.resource('locale', { path: '/:locale_id' }, function() {
+    this.resource('page', { path: '/:page_id' });
+  });
+   
 });
 
 //Debug
 App.routes = Ember.keys(App.Router.router.recognizer.names);
 
-App.Lang = Em.Object.extend();
+App.Locale = Em.Object.extend();
 
-App.Lang.reopenClass({
+App.Locale.reopenClass({
   find: function(id) {
     if (id) {
       return App.FIXTURES.findBy('id', id);
@@ -25,53 +20,39 @@ App.Lang.reopenClass({
   }
 });
 
-App.LangsRoute  = Em.Route.extend({
+App.ApplicationRoute = Em.Route.extend({
   model: function() {
-    return App.Lang.find();
-  }
+    return App.Locale.find();
+  },
+  afterModel: function(model, transition) {
+      this.transitionTo('locale', model[0]);
+    }
 });
 
-App.PagesRoute  = Em.Route.extend({
+App.LocaleRoute  = Em.Route.extend({
   model: function(params) {
-    return App.Lang.find(params.lang_id);
+    return App.Locale.find(params.locale_id);
+  },
+/*  afterModel: function(model, transition) {
+      this.transitionTo('page', model[0]);
+    }*/
+});
+
+App.PageController = Ember.ObjectController.extend({
+  ready: function() {
+    console.log('activate )' + model.toArray());
   }
 });
 
-App.PagesPageController = Ember.ObjectController.extend({
-  activate: function() {
-    console.log('activate ' + model.toArray());
-  }
-});
-
-App.PagesPageRoute = Em.Route.extend({
+App.PageRoute = Em.Route.extend({
   model: function(params) {
     console.log("params.page_id: " + params.page_id);
-    return App.Lang.find('id', params.page_id);
-    return this.modelFor('lang').pages.findBy('id', params.page_id);
+    var model = this.modelFor('locale').pages.findBy('id', params.page_id);
+
+    $.backstretch([model.pictures[0].path, model.pictures[1].path]);
+
+    return model;
   }
 });
 
-/*App.LangsRoute  = Em.Route.extend({
-  model: function() {
-    return this.store.find('lang');
-  }
-});
-
-App.PagesRoute = Em.Route.extend({
-  model: function(params) {
-    console.log("params.lang_id: " + params.lang_id);
-    this.store.find('lang', params.lang_id).then(function(stuff){console.log("store: " + stuff.toArray())});
-    //return this.modelFor('langs').findBy('id', 'en');
-    //return this.store.findAll('page', params.lang_id);
-    //return this.store.find('lang', params.lang_id);
-    return this.store.findById('lang', params.lang_id);
-  }
-});
-
-App.PagesPageRoute = Em.Route.extend({
-  model: function(params) {
-    console.log("params.page_id: " + params.page_id);
-    return this.modelFor('lang').pages.findBy('id', params.page_id);
-  }
-});*/
 

@@ -31,6 +31,15 @@ App.FIXTURES = [
        name: 'THE GARDEN',
        title: 'WOW SO GREEN',
        extra_title: 'Holiday in Normandy',
+       pictures: [
+        {
+          id: 1,
+          path: 'static/img/DSC_0403.JPG'
+        },{
+          id: 2,
+          path: 'static/img/la_tour_1_1_.JPG'
+        }
+       ]
      }
   ]
 },{

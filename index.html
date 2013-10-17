@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<script type="text/x-handlebars" data-template-name="langs">
+	<script type="text/x-handlebars">
 	{% raw %}
 	<header>
 		<section id="global-nav" >
@@ -16,7 +16,7 @@
 				
 				<ul class="links l_tinynav2">
 					{{#each}}
-					<li>{{#linkTo 'pages' this currentWhen='pages' activeClass="selected" }}{{name}}{{/linkTo}}</li>
+					<li>{{#linkTo 'locale' this currentWhen='locale' activeClass="selected" }}{{name}}{{/linkTo}}</li>
 					{{/each}}
 				</ul>
 
@@ -25,12 +25,12 @@
 	</script>
 
 
-	<script type="text/x-handlebars" data-template-name="pages">
+	<script type="text/x-handlebars" data-template-name="locale">
 	{% raw %}
 
 				<ul class="projects">
 					{{#each pages}}
-					<li>{{#link-to "pages.page" this  activeClass="selected"}}{{name}}{{/link-to}}</li>
+					<li>{{#link-to "page" this  activeClass="selected"}}{{name}}{{/link-to}}</li>
 
 					{{else}}
         			<li>Loading...</li>
@@ -49,13 +49,13 @@
 	  <h1>Loading...</h1>
 	</script>	
 	
-	<script type="text/x-handlebars" data-template-name="pages/page"> 
+	<script type="text/x-handlebars" data-template-name="page"> 
 	{% raw %}
 	<section id="presentation">
-	{{#each article in page.articles}}
+	{{#each articles }}
 	<article>
 	<header>
-	{{article.title}}
+	{{title}}
 	</header>
 	<section>
 	<p>Looking for holiday accomodation in Normandy ? Our XVI century Manor House is an excellent base from which to explore the attractions of the area. It’s within easy – driving distance of Sainte Mère Eglise, the D.Day Landing Beaches, Bayeux and Le Mont St Michel.</p>
