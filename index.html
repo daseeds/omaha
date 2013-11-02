@@ -16,7 +16,7 @@
 				
 				<ul class="links l_tinynav2">
 					{{#each}}
-					<li>{{#linkTo 'locale' this currentWhen='locale' activeClass="selected" }}{{name}}{{/linkTo}}</li>
+					<li>{{#link-to 'locale' this currentWhen='locale' activeClass="selected" }}{{name}}{{/link-to}}</li>
 					{{/each}}
 				</ul>
 
@@ -52,21 +52,20 @@
 	<script type="text/x-handlebars" data-template-name="page"> 
 	{% raw %}
 	<section id="presentation">
-	{{#each articles }}
 	<article>
 	<header>
 	{{title}}
 	</header>
 	<section>
-	<p>Looking for holiday accomodation in Normandy ? Our XVI century Manor House is an excellent base from which to explore the attractions of the area. It’s within easy – driving distance of Sainte Mère Eglise, the D.Day Landing Beaches, Bayeux and Le Mont St Michel.</p>
-	<p>Our Manor is nestled in a very quiet country setting surrounded by gardens where you can relax on a summer evening. Our non-smoking rooms have been decorated to create an intimate atmosphere: refined but relaxed, combining charm and comfort. Breakfast is particularly appreciated with home made products.</p>
+	{{#each articles }}
+	<p>{{content}}</p>
+	{{/each}}
 	</section>
 	</article>
-	{{/each}}
 	<aside>
-	<h1>{{title}}</h1>
+	<h1>{{catch_phrase}}</h1>
 	<br>
-	<h2>{{extra_title}}</h2>
+	<h2>{{sub_title}}</h2>
 	</aside>
 	</section>
 	{% endraw %}
